@@ -11,11 +11,11 @@ public class UsuarioRepositoryEmMemoria implements IUsuarioRepository{
 
     @Override
     public Usuario salvar(Usuario usuario) {
-        if (usuario.getId() == null){
+        if (usuario.getID() == null){
             usuario.setId(++this.sequenciaID);
         }
 
-        this.usuarios.put(usuario.getId(), usuario);
+        this.usuarios.put(usuario.getID(), usuario);
         return usuario;
     }
 

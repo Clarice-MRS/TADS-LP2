@@ -9,7 +9,7 @@ public interface ILivroRepository {
 
     Livro salvar(Livro livro);
 
-    List<Livro> listartodos();
+    List<Livro> listarTodos();
 
     Optional<Livro> buscarPorId(Long id);
 

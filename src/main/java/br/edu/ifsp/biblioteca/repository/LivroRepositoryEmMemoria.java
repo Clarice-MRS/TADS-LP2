@@ -25,7 +25,7 @@ public class LivroRepositoryEmMemoria  implements ILivroRepository {
     }
 
     @Override
-    public List<Livro> listartodos() {
+    public List<Livro> listarTodos() {
 
 //        List<Livro> colecaolivros = new ArrayList<>(this.livros.values());    OUTRO METODO MAIS FACIL
 //        return colecaolivros;
