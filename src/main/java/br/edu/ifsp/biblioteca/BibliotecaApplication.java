@@ -1,12 +1,14 @@
 package br.edu.ifsp.biblioteca;
 
 import br.edu.ifsp.biblioteca.cli.CatalogoRunner;
-import br.edu.ifsp.biblioteca.domain.Livro;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class BibliotecaApplication {
 
     public static void main(String[] args) {
-        CatalogoRunner appExecutor = new CatalogoRunner();
-        appExecutor.run();
+        SpringApplication.run(BibliotecaApplication.class,args);
+
     }
 }
