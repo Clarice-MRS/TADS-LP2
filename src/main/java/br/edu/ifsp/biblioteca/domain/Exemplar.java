@@ -52,4 +52,15 @@ public class Exemplar {
                 ", status=" + status +
                 '}';
     }
+
+    public void devolver() {
+
+    }
+
+    public void emprestar() {
+        if(this.status == EStatusExemplar.EMPRESTADO){
+            throw new IllegalStateException("Exemplar " + this.codigo + "já está emprestado!!!");
+        }
+        this.status = EStatusExemplar.EMPRESTADO;
+    }
 }

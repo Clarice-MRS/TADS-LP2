@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Livro {
+    public Autor[] getAutores;
     private Long id;
     private String isbn;
     private String titulo;
@@ -60,6 +61,14 @@ public class Livro {
         this.autores.add(autor);
     }
 
+    public List<Autor> getAutores() {
+        return this.autores;
+    }
+
+    public List<Exemplar> getListaDeExeplares(){
+        return this.listaDeExeplares;
+    }
+
     @Override
     public String toString() {
         return "Livro{" +
@@ -68,5 +77,8 @@ public class Livro {
                 ", titulo='" + titulo + '\'' +
                 ", anoPublicacao=" + anoPublicacao +
                 '}';
+    }
+
+    public Exemplar[] getExemplares() {
     }
 }
