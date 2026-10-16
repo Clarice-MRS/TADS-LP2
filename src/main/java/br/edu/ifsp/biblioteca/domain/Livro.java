@@ -79,6 +79,7 @@ public class Livro {
                 '}';
     }
 
-    public Exemplar[] getExemplares() {
+    public List<Exemplar> getExemplares() {
+        return listaDeExeplares;
     }
 }
