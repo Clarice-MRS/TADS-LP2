@@ -1,19 +1,51 @@
 package br.edu.ifsp.biblioteca.repository;
 
 import br.edu.ifsp.biblioteca.domain.Livro;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ILivroRepository {
+/**
+ * JpaRepository fornece os seguintes métodos (dentre outros):
+ * - save
+ * - findById,
+ * - findAll
+ * - count...
+ */
 
-    Livro salvar(Livro livro);
+/**
+ * "Containing" vira LIKE %....%, "IgnoreCase" vira LOWER(...).
+ * -----------------------------------------------------------------
+ * SELECT * FROM livro WHERE LOWER(titulo) LIKE "%?%";
+ * ------------------------------------------------------------------
+ * @parametro trechoLivro
+ * @return
+ */
 
-    List<Livro> listarTodos();
+/**
+ * Page<Livro>
+ * Retorna a lista de livros filtrados pelo trecho do titulo, porém, paginado.
+ * @parametro trechoTitulo
+ * @parametro pagina
+ * @return
+ */
 
-    Optional<Livro> buscarPorId(Long id);
+public interface ILivroRepository extends JpaRepository<Livro, Long> {
 
-    Optional<Livro> buscarPorIsbn(String isbn);
+    Optional<Livro> findByIsbn(String isbn);
+
+    boolean existsByIsbn(String isbn);
+
+    List<Livro> findByTituloContainingIgnoreCase(String trechoTitulo);
+
+    Page<Livro> findByTituloContainingIgnoreCase(
+            String trechoTitulo,
+            Pageable pagina
+    );
 
     List<Livro> buscarPorTitulo(String titulo);
+
 }
